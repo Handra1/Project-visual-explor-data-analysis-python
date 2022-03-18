@@ -1,2 +1,12 @@
 # Project-visual-explor-data-analysis-python
 This project about learning visual exploratory data analysis in python (In Indonesia)
+
+Data visualisasi adalah cara yang tepat untuk menemukan outlier dan kesalahan di dalam data. Visualisasi data tidak sekedar melihat pola/patterns dan juga membuat report dari data tersebut. Namun bisa juga menjadi cara yang efektif untuk mendapatkan outlier dan menyiapkan data cleaning pipeline. Kolom population memiliki tipe data object. Sehingga kita tidak bisa mendapatkan summary statistic ketika menggunakan method describe(). Langkah pertama yang harus dilakukan adalah mengubah tipe data kolom population dari object menjadi float64.
+Bila membuka file data2.csv, pada kolom population terdapat kesalahan delimiter dengan koma (,) sehingga secara default Python akan membaca kolom population menjadi Object atau String. Kemudian dengan perintah .astype(float) akan mengubahnya menjadi tipe float64.
+Gunakan bar plots untuk menghitung data yang berlainan and histograms untuk menghitung data yang berkesinambungan (continuous). Sehingga kita bisa mendapatkan frekuensi dari data tersebut dan akan kita gunakan untuk mendapatkan potensial error.
+Histogram: Kita pilih nama kolom yang akan dibuat histogram dari dataset tersebut kemudian gunakan method plot(‘hist’). Maka pandas akan membuat histogram.
+Sumbu x-axis adalah nilai range yang dihitung dan y-axis adalah berapa banyak pengamatan data dalam rentang nilai tertentu. Histogram menunjukan bahwa terdapat 2 pengamatan antara 1 dan 1.5 milyar dan 1 pengamatan/observation diatas 2 milyar.
+Ini adalah dataset pada tahun 2012. Sedangkan pada waktu itu merupakan hal yang tidak mungkin sebuah negara memiliki populasi lebih dari 2 milyar penduduk. Maka kita bisa mengecek data tersebut dengan kondisi dimana populasi lebih besar 1 milyar penduduk dengan perintah: print(df[df.population > 1000000000])
+Output yang ditampilkan menunjukan bahwa Negara Australia memiliki 2,3 milyar penduduk. Ini merupakan kesalahan data. China dan India juga berada di data outliers dan nilai yang ditampilkan benar. Tidak semua outliers adalah poin data yang buruk. Beberapa bisa menjadi kesalahan/error tetapi yang lain adalah nilai yang valid.
+Kita gunakan perintah box plot diikuti dengan nama kolom yang ingin kita bandingkan.
+Box plot untuk kolom population, data akan ditampilkan di dalam box. Garis yang menjangkau dari box disebut dengan whiskers.
